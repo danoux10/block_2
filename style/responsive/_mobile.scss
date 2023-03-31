@@ -1,0 +1,97 @@
+@media screen and (min-width: 378px) {
+  .btn {
+    padding: 1vh;
+  }
+  header {
+    width: 99.1vw;
+
+    nav {
+      #logo-header {
+        svg {
+          width: 6vw;
+        }
+
+        h1 {
+          font-size: 4vw;
+        }
+      }
+
+      #btn-nav {
+        width: 50%;
+
+        li {
+          font-size: 3vw;
+        }
+      }
+    }
+  }
+  main {
+    height: 92.5vh;
+
+    #home-page {
+      #logo-home {
+        svg {
+          width: 20vw;
+        }
+
+        h1 {
+          font-size: 10vw;
+        }
+      }
+
+      .btn {
+        font-size: 5vw;
+      }
+    }
+
+    #login {
+      width: 80%;
+
+      fieldset {
+        height: 20vh;
+      }
+    }
+
+    #register {
+      fieldset {
+        height: 30vh;
+      }
+    }
+
+    #sinistre-content {
+      flex-direction: column;
+      
+      #form\&info {
+        flex-direction: row;
+
+        form {
+          width: 50%;
+
+          fieldset {
+            height: 8vh;
+
+            .btn {
+              padding: .2vh;
+            }
+          }
+        }
+
+        #view-depanneur {
+          width: 50%;
+          max-height: 10vh;
+          min-height: 8vh;
+        }
+      }
+
+      #picture-content {
+        min-height: 20vh;
+        height: 82vh;
+
+        img {
+          max-width: 30%;
+          max-height: 20%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,236 @@
+.hidden {
+  display: none;
+}
+
+header {
+  padding: 1vh 0;
+  border-bottom: 2px solid $dark;
+  margin-bottom: .5%;
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  #logo-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  #btn-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.btn {
+  border: 2px solid $dark;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-connexion, .btn-inscription, .btn-deconnexion {
+  &:hover {
+    box-shadow: 4px 4px 2px $medium;
+    background: none;
+  }
+
+  &.active {
+    background: $medium;
+  }
+}
+
+.btn-valid {
+  background: rgba($valid, .5);
+
+  &:hover {
+    box-shadow: 2px 2px 2px $valid;
+  }
+}
+
+.btn-cancel {
+  background: rgba($cancel, .5);
+
+  &:hover {
+    box-shadow: 2px 2px 2px $cancel;
+  }
+}
+
+main {
+  position: relative;
+
+  #home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &.hidden {
+      display: none;
+    }
+
+    #logo-home {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  #login, #register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    fieldset {
+      background: $light;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding: 1vw; //move
+
+      legend {
+        text-align: center;
+        padding: .5vw; //move
+        border: 1px solid $dark;
+        border-top: none;
+        border-bottom: none;
+        border-radius: 50px;
+      }
+
+      .element-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        label {
+          margin-right: .5vw;
+        }
+      }
+
+      .button-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        align-items: center;
+      }
+    }
+  }
+
+  #sinistre-content {
+    display: flex;
+    justify-content: space-around;
+    //background: rgba(pink, .5); //remove
+    #form\&info {
+      display: flex;
+      //background: rgba(red, .5); //remove
+      form {
+        //background: rgba(blue, .5); //remove
+        fieldset {
+          //background: rgba(lime, .5); //remove
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+
+          legend {
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid $dark;
+            padding: .5vh;
+          }
+
+          .element-form {
+            .btn-file {
+              padding: .5vh; //move
+              box-shadow: 2px 2px 2px $medium;
+            }
+
+            input[type='file'] {
+              display: none;
+            }
+          }
+
+          .button-content {
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+          }
+        }
+      }
+
+      #view-depanneur {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-height: 50vh;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+          background: $medium;
+          width: .5vw; //move
+          height: 0;
+          border-radius: 50px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $dark;
+          border-radius: 50px;
+        }
+
+        legend {
+          text-align: center;
+          padding: .5vh;
+          border: 1px solid $dark;
+          border-radius: 20px;
+        }
+
+        a {
+          text-align: center;
+          margin: .5vh 0;
+          width: 100%;
+        }
+      }
+    }
+
+    #picture-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        background: $medium;
+        width: .5vw; //move
+        height: 0;
+        border-radius: 50px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $dark;
+        border-radius: 50px;
+      }
+
+      legend {
+        text-align: center;
+        font-size: large;
+        border-radius: 50px;
+        border: 1px solid $dark;
+        padding: .5vh;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dépanneurs automobiles à proximité</title>
+
+	<style>
+      body{
+          background: #000;
+          color: #fff;
+      }
+	</style>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqtqN4GYWoWRElW-JoQwiTBwb_17mjEbc&libraries=places"></script>
+
+</head>
+<body>
+
+	<button onclick="findDepanageurs()">Obtenir la localisation</button>
+
+	<script>
+    function findDepanageurs() {
+      if (navigator.geolocation) {
+        // Obtenir les coordonnées géographiques de l'utilisateur
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+
+          // Utiliser l'API Google Places pour récupérer les entreprises de dépannage dans un rayon de 5 km autour de l'utilisateur
+          var request = {
+            location: new google.maps.LatLng(latitude, longitude),
+            radius: '5000',
+            type: ['car_repair']
+          };
+          var service = new google.maps.places.PlacesService(document.createElement('div'));
+          service.nearbySearch(request, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              // Afficher les résultats dans une liste HTML
+              var list = document.createElement('ul');
+              for (var i = 0; i < results.length; i++) {
+                var item = document.createElement('li');
+                item.innerHTML = results[i].name + " (" + results[i].vicinity + ")";
+                list.appendChild(item);
+              }
+              document.body.appendChild(list);
+            } else {
+              console.log("Impossible de trouver des dépanneurs à proximité.");
+            }
+          });
+        });
+      } else {
+        console.log("La géolocalisation n'est pas prise en charge par ce navigateur.");
+      }
+    }
+	</script>
+</body>
+</html>
