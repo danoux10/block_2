@@ -28,12 +28,17 @@
 		<ul id="btn-nav">
 			<li class="btn btn-connexion" id="btn-connexion">Connexion</li>
 			<li class="btn btn-inscription" id="btn-inscription">S'inscrire</li>
-			<li class="btn btn-deconnexion" id="btn-deconnexion">Déonnexion</li>
+			<li id="btn-deconnexion">
+				<form action="controller/function/login&register.php?task=deconnect" id="deconnexion" method="post">
+					<button class="btn btn-deconnexion" type="submit">Deconnexion</button>
+				</form>
+			</li>
 		</ul>
 	</nav>
 </header>
 
 <main>
+
 	<section id="home-page">
 		<div id="logo-home">
 			<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -50,16 +55,18 @@
 				AssuerPlus
 			</h1>
 		</div>
-		<span class="btn btn-connexion">Connexion</span>
+		<span class="btn btn-connexion" id="btn-body-connexion">Connexion</span>
 	</section>
 
 	<form action="controller/function/login&register.php?task=login" id="login" method="post">
 		<fieldset>
 			<legend>Connexion</legend>
 
+			<section id="login-response" class="response"></section>
+
 			<span class="element-form">
 				<label for="email-nom">Email :</label>
-				<input id="email-nom" name="mail" placeholder="Nom" required type="email">
+				<input id="email-nom" name="email" placeholder="Email" required type="email">
 			</span>
 
 			<span class="element-form">
@@ -78,9 +85,11 @@
 		<fieldset>
 			<legend>S'inscrire</legend>
 
+			<section id="register-response" class="response"></section>
+
 			<span class="element-form">
 				<label for="register-name">Nom</label>
-				<input id="register-name" name="nom" placeholder="nom" required type="text">
+				<input id="register-name" name="name" placeholder="nom" required type="text">
 			</span>
 
 			<span class="element-form">
@@ -100,12 +109,12 @@
 
 			<span class="element-form">
 				<label for="register-confirm-password">Confirmer Mot de Passe</label>
-				<input id="register-confirm-password" name="confirm-passsword" placeholder="Confirmer Mot de Passe"
-				       required type="password">
+				<input id="register-confirm-password" name="confirm-password" placeholder="Confirmer Mot de Passe" required
+				       type="password">
 			</span>
 
 			<span class="button-content">
-				<button class="btn btn-valid" type="submit">Se Connecter</button>
+				<button class="btn btn-valid" type="submit">S'inscrire</button>
 				<button class="btn btn-cancel" type="reset">Annuler</button>
 			</span>
 		</fieldset>
@@ -119,8 +128,7 @@
 
 					<span class="element-form">
 					<label class="btn btn-file" for="image">Selectionner Photo</label>
-					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo" onchange="showPicture()" require
-					       type="file">
+					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo" onchange="showPicture()" require type="file">
 				</span>
 					<span class="button-content">
 					<button class="btn btn-valid" type="submit">Se Connecter</button>
@@ -140,8 +148,11 @@
 </main>
 
 <footer>
+	<script src="js/declaration.js"></script>
 	<script src="js/show&hide.js"></script>
 	<script src="js/showPicture.js"></script>
+	<script src="js/login&register.js"></script>
+	<script src="js/cookie.js"></script>
 </footer>
 </body>
 </html>

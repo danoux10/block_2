@@ -1,25 +1,36 @@
-//btn navbar
-const btnConnexion = document.getElementById('btn-connexion');
-const btnDeconnexion = document.getElementById('btn-deconnexion');
-
-//home page
-const homePage = document.getElementById('home-page');
-
-//login
-const login = document.getElementById('login');
-
-//register
-const register = document.getElementById('register');
-
-//sinistre
-const sinistreContent = document.getElementById('sinistre-content');
-const sinistreForm = document.getElementById('sinistre');
-const picture = document.getElementById('image');
-const pictureContent = document.getElementById('picture-content');
-
 btnDeconnexion.classList.add('hidden');
+sinistreContent.classList.add('hidden');
 
-//remove
-homePage.classList.add('hidden');
-login.classList.add('hidden');
-register.classList.add('hidden');
+loginForm.classList.add('hidden');
+registerForm.classList.add('hidden');
+
+responseLogin.classList.add('hidden');
+responseRegister.classList.add('hidden');
+
+function showRegister(){
+  if(!btnInscription.classList.contains('active')){
+    btnInscription.classList.add('active');
+    registerForm.classList.remove('hidden');
+  }else{
+    btnInscription.classList.remove('active');
+    registerForm.classList.add('hidden');
+  }
+}
+
+function showLogin(){
+  if(!btnNavConnexion.classList.contains('active') || !btnBodyConnexion.classList.contains('active')){
+    btnNavConnexion.classList.add('active');
+    btnBodyConnexion.classList.add('active');
+
+    loginForm.classList.remove('hidden');
+  }else{
+    btnNavConnexion.classList.remove('active');
+    btnBodyConnexion.classList.remove('active');
+
+    loginForm.classList.add('hidden');
+  }
+}
+
+btnInscription.addEventListener('click',showRegister);
+btnNavConnexion.addEventListener('click',showLogin);
+btnBodyConnexion.addEventListener('click',showLogin);
