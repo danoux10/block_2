@@ -43,7 +43,7 @@ function login(event) {
 
         sinistreContent.classList.remove('hidden');
       }
-      if(responce.error == 1) {
+      if (responce.error == 1) {
         responseLogin.classList.add('error');
         responseLogin.classList.remove('hidden');
         responseLogin.innerHTML = 'Mot de passe Faux';
@@ -55,17 +55,22 @@ function login(event) {
   return false;
 }
 
-function unconnect(event) {
+function deconnexion(event) {
   event.preventDefault();
   var xhr = new XMLHttpRequest();
   var data = new FormData(this);
-  xhr.open('POST', 'controller/function/login&register.php?task=deconnect');
+  xhr.open('POST', 'controller/function/login&register.php?task=deconnexion');
   xhr.send(data);
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      var responce = JSON.parse(xhr.responseText);
-      if (responce.error) {
+      var result =  JSON.parse(this.responseText);
+      if(result.error == 0){
+        btnNavConnexion.classList.remove('hidden');
+        btnInscription.classList.remove('hidden');
+        homePage.classList.remove('hidden');
 
+        btnDeconnexion.classList.add('hidden');
+        sinistreContent.classList.add('hidden');
       }
     } else if (xhr.readyState == 4) {
       console.log('error deconnexion');
@@ -76,4 +81,4 @@ function unconnect(event) {
 
 registerForm.addEventListener('submit', register);
 loginForm.addEventListener('submit', login);
-deconnexionForm.addEventListener('submit', unconnect);
+btnDeconnexion.addEventListener('submit', deconnexion);

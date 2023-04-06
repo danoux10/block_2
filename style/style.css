@@ -29,11 +29,11 @@ fieldset {
   cursor: pointer;
 }
 
-.btn-connexion:hover, .btn-inscription:hover, .btn-deconnexion:hover {
+.btn-nav:hover {
   box-shadow: 4px 4px 2px #c0c0c0;
   background: none;
 }
-.btn-connexion.active, .btn-inscription.active, .btn-deconnexion.active {
+.btn-nav.active {
   background: #c0c0c0;
 }
 
@@ -230,6 +230,9 @@ main #sinistre-content #picture-content legend {
   border-radius: 50px;
   border: 1px solid #000;
   padding: 0.5vh;
+}
+main #sinistre-content #map {
+  display: none;
 }
 
 @media screen and (min-width: 378px) {

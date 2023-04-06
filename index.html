@@ -5,6 +5,7 @@
 	<title>AssuerPlus</title>
 	<link href="style/style.css" rel="stylesheet">
 	<link class="favicon" href="icon/logo.ico" rel="shortcut icon" type="image/x-icon">
+	<!--	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-LhnlcWVTiNEOAx2Bc53LGkDGNrXHsA&libraries=places"></script>-->
 </head>
 <body>
 <header>
@@ -26,14 +27,12 @@
 		</div>
 
 		<ul id="btn-nav">
-			<li class="btn btn-connexion" id="btn-connexion">Connexion</li>
-			<li class="btn btn-inscription" id="btn-inscription">S'inscrire</li>
-			<li id="btn-deconnexion">
-				<form action="controller/function/login&register.php?task=deconnect" id="deconnexion" method="post">
-					<button class="btn btn-deconnexion" type="submit">Deconnexion</button>
-				</form>
-			</li>
+			<li class="btn btn-nav" id="btn-connexion">Connexion</li>
+			<li class="btn btn-nav" id="btn-inscription">S'inscrire</li>
 		</ul>
+		<form action="controller/function/login&register.php?task=deconnexion" method="post" id="deconnexion">
+			<button class="btn btn-nav" type="submit">Déconnexion</button>
+		</form>
 	</nav>
 </header>
 
@@ -62,7 +61,7 @@
 		<fieldset>
 			<legend>Connexion</legend>
 
-			<section id="login-response" class="response"></section>
+			<section class="response" id="login-response"></section>
 
 			<span class="element-form">
 				<label for="email-nom">Email :</label>
@@ -85,7 +84,7 @@
 		<fieldset>
 			<legend>S'inscrire</legend>
 
-			<section id="register-response" class="response"></section>
+			<section class="response" id="register-response"></section>
 
 			<span class="element-form">
 				<label for="register-name">Nom</label>
@@ -128,10 +127,11 @@
 
 					<span class="element-form">
 					<label class="btn btn-file" for="image">Selectionner Photo</label>
-					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo" onchange="showPicture()" require type="file">
+					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo[]" onchange="showPicture()" require
+					       type="file">
 				</span>
 					<span class="button-content">
-					<button class="btn btn-valid" type="submit">Se Connecter</button>
+					<button class="btn btn-valid" type="submit">Valide</button>
 					<button class="btn btn-cancel" type="reset">Annuler</button>
 				</span>
 				</fieldset>
@@ -144,6 +144,7 @@
 			<legend>Image Sélectionner</legend>
 
 		</fieldset>
+		<div id="map"></div>
 	</article>
 </main>
 
@@ -151,8 +152,10 @@
 	<script src="js/declaration.js"></script>
 	<script src="js/show&hide.js"></script>
 	<script src="js/showPicture.js"></script>
-	<script src="js/login&register.js"></script>
-	<script src="js/cookie.js"></script>
+	<script src="js/login&register.js">
+    <script src="js/cookie.js"></script>
+	<script src="js/sinistre.js"></script>
+	<!--	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-LhnlcWVTiNEOAx2Bc53LGkDGNrXHsA&libraries=places&callback=initMap"></script>-->
 </footer>
 </body>
 </html>

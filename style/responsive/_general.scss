@@ -1,7 +1,6 @@
 .hidden {
   display: none;
 }
-
 .btn {
   border: 2px solid $dark;
   border-radius: 50px;
@@ -9,7 +8,7 @@
   cursor: pointer;
 }
 
-.btn-connexion, .btn-inscription, .btn-deconnexion {
+.btn-nav{
   &:hover {
     box-shadow: 4px 4px 2px $medium;
     background: none;
@@ -243,6 +242,9 @@ main {
         border: 1px solid $dark;
         padding: .5vh;
       }
+    }
+    #map{
+      display: none;
     }
   }
 }

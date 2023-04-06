@@ -15,8 +15,8 @@ if($task == 'login'){
 	login();
 }
 
-if($task == 'deconnect'){
-	deconnect();
+if($task == 'deconnexion'){
+	deconnexion();
 }
 
 function register(){
@@ -39,7 +39,6 @@ function register(){
 	echo json_encode($res);
 }
 
-
 function login(){
 	global $bdd;
 	$email = htmlspecialchars($_POST['email']);
@@ -54,7 +53,7 @@ function login(){
 	}
 	
 	if(password_verify($password,$dataPass)){
-		setcookie('userId',$userId,time()+2592000);
+		setcookie('userId',$userId,time()+(20*365*24*60*60),'/');
 		$error = '0';
 	}else{
 		$error = '1';
@@ -63,9 +62,11 @@ function login(){
 	echo json_encode($res);
 }
 
-function deconnect(){
-	setcookie('userId',null,time()+2592000);
+function deconnexion(){
+	setcookie('userId',null,time()+(20*365*24*60*60),'/');
 	$error = '0';
 	$res = ['error'=>$error];
 	echo json_encode($res);
+//	header('location:index.php');
+//	die();
 }

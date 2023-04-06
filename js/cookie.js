@@ -10,19 +10,19 @@ function getCookie(name) {
 }
 
 if(getCookie('userId') != null){
-  btnDeconnexion.classList.remove('hidden');
   btnNavConnexion.classList.add('hidden');
   btnInscription.classList.add('hidden');
   homePage.classList.add('hidden');
 
+  btnDeconnexion.classList.remove('hidden');
   sinistreContent.classList.remove('hidden');
 }
 
 if(getCookie('userId') == null){
-  btnDeconnexion.classList.add('hidden');
   btnNavConnexion.classList.remove('hidden');
   btnInscription.classList.remove('hidden');
   homePage.classList.remove('hidden');
 
+  btnDeconnexion.classList.add('hidden');
   sinistreContent.classList.add('hidden');
 }
