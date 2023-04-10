@@ -352,6 +352,10 @@ main #sinistre-content #picture-content legend {
   main #sinistre-content {
     margin: 0 1%;
   }
+  main #sinistre-content #form\&info {
+    justify-content: center;
+    align-items: center;
+  }
   main #sinistre-content #form\&info form {
     width: 100%;
   }
