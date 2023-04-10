@@ -5,7 +5,6 @@
 	<title>AssuerPlus</title>
 	<link href="style/style.css" rel="stylesheet">
 	<link class="favicon" href="icon/logo.ico" rel="shortcut icon" type="image/x-icon">
-	<!--	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-LhnlcWVTiNEOAx2Bc53LGkDGNrXHsA&libraries=places"></script>-->
 </head>
 <body>
 <header>
@@ -127,8 +126,7 @@
 
 					<span class="element-form">
 					<label class="btn btn-file" for="image">Selectionner Photo</label>
-					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo[]" onchange="showPicture()" require
-					       type="file">
+					<input accept=".png, .jpg, .jpeg" id="image" multiple name="photo[]" onchange="showPicture()" require type="file">
 				</span>
 					<span class="button-content">
 					<button class="btn btn-valid" type="submit">Valide</button>
@@ -136,15 +134,83 @@
 				</span>
 				</fieldset>
 			</form>
-			<fieldset id="view-depanneur">
+			<fieldset id="depanneur-content">
 				<legend>Dépanneur Dans la Zone</legend>
+				<div id="view-depanneur">
+					<div class="depanneur-element">
+						<p class="name">Centre ODiam Troyes</p>
+						<p class="address">7 Rue de la Côte, Laubressel</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Garage du LAC</p>
+						<p class="address">2 Route de Montreuil, Lusigny-sur-Barse</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">AD Garage Expert DE LA PLACE - SAS BEUVE GRADOS</p>
+						<p class="address">63 Rue du Haut, Laubressel</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Carrosserie Hugot</p>
+						<p class="address">6 Rue du Maréchal Joffre, Lusigny-sur-Barse</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Fab and the Wheels</p>
+						<p class="address">17 Rue du Grand Cernay, Dosches</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">GARAGE PREMIER - FRHED AUTO</p>
+						<p class="address">1 Rue de la Rance, Montaulin</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Jardin Méca</p>
+						<p class="address">8 Rue Haute, Thennelières</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">1,2,3 AutoService</p>
+						<p class="address">6 Rue de l'Orme, Dosches</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Ludo'micile</p>
+						<p class="address">6 Rue de l'Orme, Dosches</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Auto Edition</p>
+						<p class="address">18 bis Rue de l'École, Rouilly-Saint-Loup</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Aube Camping Cars Accessoires</p>
+						<p class="address">VERRIERES, Zone artisanale Chemin de la croix du chemineau 10390, 3 Beauregard, Verrières</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">CDV Carrosserie de verrieres</p>
+						<p class="address">9 Chem. de la Croix du Chemineau, Verrières</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">DPR auto 10</p>
+						<p class="address">9 Chem. de la Croix du Chemineau, Verrières</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Renault DK AUTO</p>
+						<p class="address">11 Rue des Grèves, Rouilly-Saint-Loup</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">JLM AUTO</p>
+						<p class="address">21 Route du Lac d'Orient, Rouilly-Sacey</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Rapid Pare-Brise Saint-Parres-aux-Tertres</p>
+						<p class="address">13 r Henri Farman ZA les Perrières, Saint-Parres-aux-Tertres</p>
+					</div>
+					<div class="depanneur-element">
+						<p class="name">Garage de Clérey</p>
+						<p class="address">2 Route de Bourgogne, Clérey</p>
+					</div>
+				</div>
 			</fieldset>
 		</section>
 		<fieldset id="picture-content">
 			<legend>Image Sélectionner</legend>
-
 		</fieldset>
-		<div id="map"></div>
 	</article>
 </main>
 
@@ -152,10 +218,12 @@
 	<script src="js/declaration.js"></script>
 	<script src="js/show&hide.js"></script>
 	<script src="js/showPicture.js"></script>
-	<script src="js/login&register.js">
-    <script src="js/cookie.js"></script>
+	<script src="js/login&register.js"></script>
+	<script src="js/cookie.js"></script>
 	<script src="js/sinistre.js"></script>
-	<!--	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-LhnlcWVTiNEOAx2Bc53LGkDGNrXHsA&libraries=places&callback=initMap"></script>-->
+
+<!--	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-LhnlcWVTiNEOAx2Bc53LGkDGNrXHsA&libraries=places"></script>-->
+
 </footer>
 </body>
 </html>

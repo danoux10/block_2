@@ -32,8 +32,6 @@ function login(event) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var responce = JSON.parse(this.responseText);
-      var result = JSON.stringify();
-      console.log(result);
       if (responce.error == 0) {
         btnDeconnexion.classList.remove('hidden');
         btnNavConnexion.classList.add('hidden');

@@ -1,65 +1,50 @@
-function initMap() {
-  // Centrer la carte sur Paris
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 48.8566, lng: 2.3522},
-    zoom: 12
-  });
-
-  infoWindow = new google.maps.InfoWindow();
-
-  // Récupérer la position de l'utilisateur (si possible)
+function findDepanneurs() {
+  // Récupérer la position actuelle de l'utilisateur
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      // Centrer la carte sur la position de l'utilisateur
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Votre position actuelle.');
-      infoWindow.open(map);
-      map.setCenter(pos);
-    }, function() {
-      // En cas d'erreur lors de la récupération de la position
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
+    navigator.geolocation.getCurrentPosition(getDepanneurs);
   } else {
-    // Si la géolocalisation n'est pas supportée par le navigateur
-    handleLocationError(false, infoWindow, map.getCenter());
+    alert("La géolocalisation n'est pas supportée par ce navigateur.");
   }
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-      'Erreur: la géolocalisation a échoué.' :
-      'Erreur: votre navigateur ne supporte pas la géolocalisation.');
-  infoWindow.open(map);
-}
+// Trouver les dépanneurs à proximité de la position actuelle de l'utilisateur
+function getDepanneurs(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
 
-function getDepanneurs() {
-  var service = new google.maps.places.PlacesService(map);
-
-  // Récupérer les dépanneurs dans un rayon donné autour de la position actuelle
+  // Récupérer les dépanneurs dans un rayon défini autour de la position actuelle
+  var service = new google.maps.places.PlacesService(document.createElement('div'));
   service.nearbySearch({
-    location: map.getCenter(),
-    radius: 10000, // rayon en mètres
-    type: ['car_repair'] // type de lieu recherché
+    location: {lat: latitude, lng: longitude},
+    radius: 10000,//distance en metre (10km)
+    type: ['car_repair']
   }, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      // Afficher les résultats dans une liste
-      var list = document.createElement('ul');
-      results.forEach(function(result) {
-        var item = document.createElement('li');
-        item.innerHTML = result.name + " - " + result.vicinity;
-        list.appendChild(item);
-      });
-      viewDepanneur.appendChild(list);
+      var viewDepanneur = document.getElementById("view-depanneur");
+      viewDepanneur.innerHTML = "";
+
+      // Ajouter un bloc pour chaque dépanneur trouvé
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+
+        var depanneurElement = document.createElement("div");
+        depanneurElement.classList.add("depanneur-element");
+
+        var name = document.createElement("p");
+        name.classList.add('name');
+        name.innerHTML = place.name;
+        depanneurElement.appendChild(name);
+
+        var address = document.createElement("p");
+        address.classList.add('address');
+        address.innerHTML = place.vicinity;
+        depanneurElement.appendChild(address);
+
+        viewDepanneur.appendChild(depanneurElement);
+      }
     }
   });
 }
-
 function getSinistre(event){
   event.preventDefault();
   var xhr = new XMLHttpRequest();
@@ -68,6 +53,7 @@ function getSinistre(event){
   xhr.send(data);
   xhr.onreadystatechange = function(){
     if(xhr.readyState == 4 && xhr.status == 200){
+
     }else if(xhr.readyState == 4){
       console.log('error sinistre');
     }
@@ -76,4 +62,4 @@ function getSinistre(event){
 }
 
 sinistreForm.addEventListener('submit',getSinistre);
-// sinistreForm.addEventListener('submit',getDepanneurs);
+sinistreForm.addEventListener('submit',findDepanneurs);

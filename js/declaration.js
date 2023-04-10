@@ -24,8 +24,3 @@ const viewDepanneur = document.getElementById('view-depanneur');
 //response form
 const responseLogin = document.getElementById('login-response');
 const responseRegister = document.getElementById('register-response');
-
-//map
-var map;
-var infoWindow;
-

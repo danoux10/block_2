@@ -56,27 +56,19 @@
     }
 
     #sinistre-content {
-      flex-direction: row;
-
+      margin: 0 1%;
       #form\&info {
-        flex-direction: column;
 
         form {
           width: 100%;
 
           fieldset {
             width: 15vw;
-            height: 15vh;
-
-            legend {
-            }
           }
         }
 
-        #view-depanneur {
+        #depanneur-content {
           margin-top: 1vh;
-          width: 100%;
-          max-height: 60vh;
         }
       }
 

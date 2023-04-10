@@ -11,7 +11,7 @@ if($task == 'sinistre'){
 
 function sinistre(){
 	global $bdd;
-	$dir = 'image/';
+	$dir = '../../image/';
 	foreach ($_FILES['photo']['tmp_name'] as $key=>$tmp_name){
 		$fileName = $_FILES['photo']['name'][$key];
 		$fileTmp = $_FILES['photo']['tmp_name'][$key];
